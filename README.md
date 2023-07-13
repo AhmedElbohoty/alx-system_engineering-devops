@@ -1,1 +1,1 @@
-Thie repo for '0x00. Shell, basics' project
+Solve alx-system_engineering-devops tasks
