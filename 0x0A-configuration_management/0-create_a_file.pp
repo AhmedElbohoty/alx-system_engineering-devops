@@ -8,7 +8,6 @@
 # - File contains I love Puppet
 file { '/tmp/school':
   path    => '/tmp/school',
-  ensure  => 'present',
   content => 'I love Puppet',
   group   => 'www-data',
   mode    => '0744',
