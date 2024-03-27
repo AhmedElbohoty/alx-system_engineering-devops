@@ -7,6 +7,9 @@ apt-get update
 # Install nginx web server
 apt-get install -y nginx
 
+# Allow nginx server
+ufw allow "Nginx HTTP"
+
 # Ensure nginx is stopped
 service nginx stop
 
