@@ -7,6 +7,12 @@ apt-get update
 # Install nginx web server
 apt-get install -y nginx
 
+# Install ufw
+apt-get install -y ufw
+
+# Enable ufw
+ufw enable
+
 # Allow nginx server
 ufw allow "Nginx HTTP"
 
