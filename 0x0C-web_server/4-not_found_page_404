@@ -16,8 +16,11 @@ ufw allow "Nginx HTTP"
 # Ensure nginx is stopped
 service nginx stop
 
-# Create HTML page with "Hello World!"
+# Create index page with "Hello World!"
 echo "Hello World!" > /var/www/html/index.html
+
+# Create error page with "Ceci n'est pas une page"
+echo "Ceci n'est pas une page" > /var/www/html/404_page.html
 
 # Config for Nginx
 NGINX_CONFIG=\
@@ -31,6 +34,11 @@ NGINX_CONFIG=\
 
     location /redirect_me {
         return 301 https://www.google.com/;
+    }
+
+    error_page 404 /404_page.html;
+    location = /404_page.html {
+        internal;
     }
 }"
 
