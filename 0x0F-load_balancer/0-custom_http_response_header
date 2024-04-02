@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# Install nginx web server
+
+# Update package lists
+apt-get update
+
+# Install nginx web server
+apt-get install -y nginx
+
+# Allow nginx server
+ufw allow "Nginx HTTP"
+
+# Ensure nginx is stopped
+service nginx stop
+
+# Create index page with "Hello World!"
+echo "Hello World!" > /var/www/html/index.html
+
+# Create error page with "Ceci n'est pas une page"
+echo "Ceci n'est pas une page" > /var/www/html/404_page.html
+
+# Config for Nginx
+NGINX_CONFIG=\
+"server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    add_header X-Served-By $hostname;
+
+    root /var/www/html;
+
+    index  index.html;
+
+    location /redirect_me {
+        return 301 https://www.google.com/;
+    }
+
+    error_page 404 /404_page.html;
+    location = /404_page.html {
+        internal;
+    }
+}"
+
+echo "$NGINX_CONFIG" > /etc/nginx/sites-available/default;
+
+# Start nginx server
+service nginx start
