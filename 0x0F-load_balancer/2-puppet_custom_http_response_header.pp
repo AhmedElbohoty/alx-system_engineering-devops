@@ -3,17 +3,6 @@ package { 'nginx':
   ensure => installed,
 }
 
-# Create index page 
-file { '/var/www/html/index.html':
-  ensure  => present,
-  content => "Hello World!\n",
-}
-
-# Create error page
-file { '/var/www/html/404_page.html':
-  ensure  => present,
-  content => "Ceci n'est pas une page\n",
-}
 
 file { '/etc/nginx/sites-available/default':
   ensure  => present,
@@ -39,6 +28,18 @@ file { '/etc/nginx/sites-available/default':
     }
   ",
   notify  => Service['nginx'],
+}
+
+# Create index page 
+file { '/var/www/html/index.html':
+  ensure  => present,
+  content => "Hello World!\n",
+}
+
+# Create error page
+file { '/var/www/html/404_page.html':
+  ensure  => present,
+  content => "Ceci n'est pas une page\n",
 }
 
 # Ensure nginx service is running
