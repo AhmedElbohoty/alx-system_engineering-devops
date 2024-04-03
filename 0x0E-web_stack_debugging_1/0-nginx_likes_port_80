@@ -8,4 +8,4 @@
 ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart nginx
-service nginx start
+service nginx restart
