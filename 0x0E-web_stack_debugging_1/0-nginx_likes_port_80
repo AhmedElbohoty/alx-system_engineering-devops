@@ -3,7 +3,9 @@
 
 # Create symlink from a configuration file in sites-available to sites-enabled
 # To ensure that nginx use the default configuration
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+# -s: This option creates a symbolic link.
+# -f: It will overwrite the existing file if it exists.
+ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart nginx
 service nginx start
