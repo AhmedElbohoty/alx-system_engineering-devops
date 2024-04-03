@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Nginx must be running, and listening on port 80 of all the server active IPs
+ln -s -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
+service nginx stop
