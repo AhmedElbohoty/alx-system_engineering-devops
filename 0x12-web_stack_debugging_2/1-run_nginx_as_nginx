@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Update nginx configuration
+sed -i 's/user\s*nginx;/user nginx;/' /etc/nginx/nginx.conf
+
+# Ensure nginx is listening on port 8080
+sed -i 's/listen\s*80;/listen 8080;/g' /etc/nginx/sites-available/default
+
+service nginx restart
