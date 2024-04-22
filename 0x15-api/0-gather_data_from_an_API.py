@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-'''
-For a given employee ID, returns information about his todo list progress.
-'''
+"""For employee ID, returns information about his todo list progress"""
+
 import requests
 import sys
 
@@ -22,20 +21,20 @@ def get_employee_todo(employee_id):
 
     # Get Employee info
     employee_resp = requests.get(employee_url, timeout=timeout)
-    employee_name = employee_resp.json()['name']
+    employee_name = employee_resp.json().get('name')
 
     # Get fetch todo list
     todo_resp = requests.get(todo_url, timeout=timeout)
     todos = todo_resp.json()
 
     total_tasks = len(todos)
-    done_tasks = sum(1 for task in todos if task['completed'])
+    done_todos = sum(1 for task in todos if task.get('completed'))
 
     print(f"Employee {employee_name} is done with tasks({
-        done_tasks}/{total_tasks}):")
+        done_todos}/{total_tasks}):")
 
     for task in todos:
-        if task['completed']:
+        if task.get('completed'):
             print(f"\t{task['title']}")
 
 
