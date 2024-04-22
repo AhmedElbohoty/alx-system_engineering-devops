@@ -29,8 +29,8 @@ if __name__ == "__main__":
     total_tasks = len(todos)
     done_todos = sum(1 for task in todos if task.get("completed"))
 
-    print(f"Employee {employee_name} is done with tasks({\
-          done_todos}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks("
+          f"{done_todos}/{total_tasks}):")
 
     for task in todos:
         if task.get("completed"):
