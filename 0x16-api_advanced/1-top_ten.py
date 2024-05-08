@@ -19,7 +19,8 @@ def top_ten(subreddit):
         print("None")
 
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
-    user_agent = {'User-agent': 'Chrome'}
+    user_agent = {
+        'User-agent': 'Chrome/100.0.4896.100'}
     params = {'limit': 10}
     allow_redirects = False
     timeout = 5000
