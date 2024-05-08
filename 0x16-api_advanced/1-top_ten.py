@@ -15,8 +15,13 @@ def top_ten(subreddit):
         subreddit(string): the subreddit name
     """
 
-    if subreddit is None or not isinstance(subreddit, str):
+    if subreddit is None:
         print("None")
+        return
+
+    if not isinstance(subreddit, str):
+        print("None")
+        return
 
     url = 'https://www.reddit.com/r/{}/hot/.json'.format(subreddit)
     user_agent = {

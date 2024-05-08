@@ -38,7 +38,6 @@ def recurse(subreddit, hot_list=[], after=None):
         return None
 
     children = data.get('children')
-
     if not children:
         return None
 
