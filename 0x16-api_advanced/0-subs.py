@@ -17,7 +17,6 @@ def number_of_subscribers(subreddit):
     Returns:
         numbers(number): the number of subscribers.
     """
-    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     if subreddit is None:
         return 0
@@ -25,6 +24,7 @@ def number_of_subscribers(subreddit):
     if not isinstance(subreddit, str):
         return 0
 
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {"User-Agent": "Chrome"}
 
     try:
