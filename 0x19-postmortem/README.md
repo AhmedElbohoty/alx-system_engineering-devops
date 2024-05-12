@@ -1,3 +1,5 @@
+![alt text](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
+
 ## Issue Summary:
 
 For hour and half at May 11, 2024, 08:00 UTC to May 11, 2024, 12:00 UTC, our Apache service outage resulting in a 500 error; 100% of users experienced service error.
