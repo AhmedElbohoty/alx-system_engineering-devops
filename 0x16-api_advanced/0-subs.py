@@ -25,25 +25,27 @@ def number_of_subscribers(subreddit):
         return 0
 
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {"User-Agent": "Chrome"}
+    headers = {'User-Agent': 'Mozilla/5.0'}
+    allow_redirects = False
+    timeout = 5000
 
     try:
         response = requests.get(url, headers=headers,
-                                timeout=5000, allow_redirects=False)
+                                allow_redirects=allow_redirects,
+                                timeout=timeout)
 
-        response.raise_for_status()
+        if response.status_code != 200:
+            return None
 
-        if response.status_code == 200:
-            data = response.json().get('data')
+        data = response.json().get('data')
 
-            if data is None:
-                return 0
+        if data is None:
+            return None
 
-            if data.get("subscribers") is None:
-                return 0
-
-            return data.get("subscribers")
-        else:
+        if data.get("subscribers") is None:
             return 0
+
+        return data.get("subscribers")
+
     except Exception:
         return 0
